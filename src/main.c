@@ -65,6 +65,7 @@ int main(void) {
 }
 
 void vectors_button(void) {mode = VECTORS;}
+void main_menu_button(void) {mode = MAIN_MENU;}
 
 void render(ALLEGRO_EVENT event, mode_t mode) {
   al_clear_to_color(BG_COLOR);
@@ -76,7 +77,13 @@ void render(ALLEGRO_EVENT event, mode_t mode) {
     } break;
 
     case VECTORS: {
+      al_draw_text(font, al_map_rgb(0, 0, 0), (1920/2)-50, 100, 0, "VECTORS");
       draw_grid((1920/2)-400, 200, 800, 600, 50, al_map_rgb(0, 0, 0));
+      draw_coord((1920/2), 500, "(0,0)", al_map_rgb(255, 0, 0));
+      draw_button(event, 30, 20, 150, 40, MENU, "MAIN MENU", main_menu_button);
+
+      draw_vector(0, 0, 2, 0, al_map_rgb(0, 50, 180));
+      draw_vector(0, 0, 2, 1, al_map_rgb(200, 50, 180));
     } break;
   
     default:
