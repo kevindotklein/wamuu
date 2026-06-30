@@ -64,9 +64,7 @@ int main(void) {
   return 0;
 }
 
-void vectors_button(void) {
-  mode = VECTORS;
-}
+void vectors_button(void) {mode = VECTORS;}
 
 void render(ALLEGRO_EVENT event, mode_t mode) {
   al_clear_to_color(BG_COLOR);
@@ -75,6 +73,10 @@ void render(ALLEGRO_EVENT event, mode_t mode) {
     case MAIN_MENU: {
       al_draw_text(font, al_map_rgb(0, 0, 0), (1920/2)-50, 100, 0, "WAMUU (beta)");
       draw_button(event, 1920/3, 200, 110, 40, DEFAULT, "VECTORS", vectors_button);
+    } break;
+
+    case VECTORS: {
+      draw_grid((1920/2)-400, 200, 800, 600, 50, al_map_rgb(0, 0, 0));
     } break;
   
     default:

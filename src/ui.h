@@ -20,4 +20,11 @@ void draw_button(ALLEGRO_EVENT event,
                  const char* text,
                  void (*f)(void));
 
+void draw_grid(int x,
+               int y,
+               int w,
+               int h,
+               int cell_size,
+               ALLEGRO_COLOR color);
+
 #endif

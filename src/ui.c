@@ -37,3 +37,19 @@ void draw_button(ALLEGRO_EVENT event,
   al_draw_rectangle(x, y, x+w, y+h, al_map_rgb(0, 0, 0), 1);
   al_draw_text(font, al_map_rgb(0, 0, 0), x + (w/2), y + (h/2) - 12, ALLEGRO_ALIGN_CENTER, text);
 }
+
+void draw_grid(int x,
+               int y,
+               int w,
+               int h,
+               int cell_size,
+               ALLEGRO_COLOR color) {
+
+  for(int i=x; i<=x+w; i+=cell_size) {
+    al_draw_line(i, y, i, y+h, color, 1);
+  }
+
+  for(int i=y; i<=y+h; i+=cell_size) {
+    al_draw_line(x, i, x+w, i, color, 1);
+  }
+}
